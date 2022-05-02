@@ -3,6 +3,7 @@ const readline = require('readline');
 const { google: gapi } = require('googleapis');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
+const SPREADSHEET_ID = '';
 
 const { client_secret, client_id, redirect_uris } = require('./credentials.json').installed;
 
@@ -68,7 +69,7 @@ function returnSheets() {
 function spreadsheetGet(range) {
     // Creates new Sheets API client for use with the OAuth2 client
     sheets.spreadsheets.values.get({
-        spreadsheetId: '1ByMRe7vmHJFLpt64cm1jqQAjis0-pMZV7UYh6QVA8gE',
+        spreadsheetId: SPREADSHEET_ID,
         range: range
     }, (e, res) => {
         if (e) return console.error('The API returned an error:', e);
@@ -92,7 +93,7 @@ function spreadsheetGet(range) {
 
 function spreadsheetAppend(range, values) {
     sheets.spreadsheets.values.append({
-        spreadsheetId: '1ByMRe7vmHJFLpt64cm1jqQAjis0-pMZV7UYh6QVA8gE',
+        spreadsheetId: SPREADSHEET_ID,
         range: range,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
