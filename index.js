@@ -107,6 +107,8 @@ function spreadsheetAppend(range, values) {
     });
 }
 
+// Get a project up with s credentials.json
+// Uncomment one after another
 getNewToken();
 // spreadsheetGet('A1:B');
 // spreadsheetAppend('A1:B', [['Riley', 'Presidency']]);
